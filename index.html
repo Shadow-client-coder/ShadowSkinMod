@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== SNOW EFFECT ===== */
         .snow-container {
             position: fixed;
             top: 0; left: 0;
@@ -54,7 +53,6 @@
             to { transform: translateY(105vh) rotate(360deg); }
         }
 
-        /* ===== APP ===== */
         .app {
             width: 100%;
             max-width: 900px;
@@ -63,7 +61,6 @@
             z-index: 1;
         }
 
-        /* ===== HERO SECTION ===== */
         .hero {
             text-align: center;
             margin-bottom: 25px;
@@ -142,7 +139,6 @@
             box-shadow: 0 12px 40px rgba(224, 48, 48, 0.7);
         }
 
-        /* ===== TOP BAR - FIXED ===== */
         .topbar {
             display: flex;
             align-items: center;
@@ -249,7 +245,6 @@
             color: #fff;
         }
 
-        /* ===== DROPDOWN MENU ===== */
         .dropdown {
             position: relative;
         }
@@ -300,7 +295,6 @@
             margin: 4px 0;
         }
 
-        /* ===== WHY SECTION ===== */
         .why-section {
             background: var(--card);
             border: 1px solid var(--border);
@@ -336,7 +330,6 @@
 
         .feature-item .icon { font-size: 20px; flex-shrink: 0; }
 
-        /* ===== MAIN CONTENT ===== */
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -350,7 +343,6 @@
             .hero-btn { padding: 14px 24px; font-size: 14px; }
         }
 
-        /* ===== INJECT PANEL ===== */
         .inject-panel {
             background: var(--card);
             border: 1px solid var(--border);
@@ -410,7 +402,6 @@
 
         .inject-btn:active { transform: scale(0.97); }
 
-        /* ===== MOD PANEL ===== */
         .mod-panel {
             background: var(--card);
             border: 1px solid var(--border);
@@ -492,7 +483,128 @@
             cursor: not-allowed;
         }
 
-        /* ===== FOOTER ===== */
+        .download-section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-section h3 {
+            font-size: 14px;
+            color: #a78bfa;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .download-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(45,27,78,0.5);
+            border: 1px solid #3a2060;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        .download-item:hover {
+            border-color: #7c3aed;
+        }
+
+        .download-item.premium-item:hover {
+            border-color: #f0c040;
+        }
+
+        .download-item.max-item:hover {
+            border-color: #ff4040;
+        }
+
+        .download-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .download-info {
+            flex: 1;
+        }
+
+        .download-info strong {
+            display: block;
+            font-size: 14px;
+            color: #c084fc;
+            margin-bottom: 3px;
+        }
+
+        .download-info .gold-text {
+            color: #f0c040;
+        }
+
+        .download-info .red-text {
+            color: #ff4040;
+        }
+
+        .download-info p {
+            font-size: 11px;
+            color: #7c3aed;
+            margin: 0;
+        }
+
+        .download-btns {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dl-btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.2s;
+            border: 1px solid #5b21b6;
+            background: #1a1025;
+            color: #a78bfa;
+        }
+
+        .dl-btn:hover {
+            background: #2d1b4e;
+            color: #fff;
+        }
+
+        .dl-btn.gold {
+            background: linear-gradient(135deg, #f0c040, #c09020);
+            border: none;
+            color: #000;
+        }
+
+        .dl-btn.gold:hover {
+            transform: scale(1.05);
+        }
+
+        .dl-btn.red {
+            background: linear-gradient(135deg, #e03030, #a02020);
+            border: none;
+            color: #fff;
+        }
+
+        .dl-btn.red:hover {
+            transform: scale(1.05);
+        }
+
         .footer {
             background: var(--card);
             border: 1px solid var(--border);
@@ -526,7 +638,6 @@
             max-width: 350px;
         }
 
-        /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -618,15 +729,6 @@
             margin-top: 12px;
         }
 
-        .modal-owner-hint {
-            font-size: 11px;
-            color: #ff4040;
-            text-align: center;
-            margin-top: 6px;
-            font-weight: 600;
-        }
-
-        /* ===== GET KEY STEPS ===== */
         .step-box {
             background: rgba(45, 27, 78, 0.5);
             border: 1px solid #3a2060;
@@ -727,7 +829,6 @@
             color: #30c030;
         }
 
-        /* Progress Bar */
         .progress-container {
             background: #1a1025;
             border-radius: 10px;
@@ -774,7 +875,6 @@
             word-break: break-all;
         }
 
-        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -822,11 +922,9 @@
     </style>
 </head>
 <body>
-    <!-- SNOW -->
     <div class="snow-container" id="snowContainer"></div>
 
     <div class="app">
-        <!-- ===== HERO ===== -->
         <div class="hero">
             <h1>SHADOW MOD SKIN</h1>
             <p class="subtitle">Private Build v99.9</p>
@@ -840,7 +938,6 @@
             </div>
         </div>
 
-        <!-- ===== TOP BAR ===== -->
         <div class="topbar">
             <div class="logo-area">
                 <div class="logo-icon">S</div>
@@ -864,7 +961,6 @@
             </div>
         </div>
 
-        <!-- ===== WHY SECTION ===== -->
         <div class="why-section">
             <h3>⚡ TẠI SAO NÊN DÙNG SHADOW MOD SKIN?</h3>
             <div class="features-grid">
@@ -887,16 +983,13 @@
             </div>
         </div>
 
-        <!-- ===== MAIN CONTENT ===== -->
         <div class="main-content">
-            <!-- INJECT PANEL -->
             <div class="inject-panel">
                 <h3>📋 NHẬP ID & INJECT</h3>
                 <input type="text" id="uid" placeholder="Nhập UID Game...">
                 <button class="inject-btn" onclick="injectMod()">⚡ INJECT</button>
             </div>
 
-            <!-- MOD PANEL -->
             <div class="mod-panel locked" id="modPanel">
                 <h3>🔧 TUỲ CHỈNH MOD</h3>
                 <div class="mod-row"><label>💎 Kim Cương</label><input type="number" id="diamonds" placeholder="0" disabled></div>
@@ -908,7 +1001,45 @@
             </div>
         </div>
 
-        <!-- ===== FOOTER ===== -->
+        <div class="download-section">
+            <h3>📥 TẢI CÔNG CỤ MOD</h3>
+            <div class="download-list">
+                <div class="download-item">
+                    <span class="download-icon">🔧</span>
+                    <div class="download-info">
+                        <strong>ProxyPin - Bắt Gói Tin HTTPS</strong>
+                        <p>Công cụ chặn & redirect request game</p>
+                    </div>
+                    <div class="download-btns">
+                        <a href="https://apps.apple.com/vn/app/proxypin-b%E1%BA%AFt-g%C3%B3i-tin-http-s/id6450932949?l=vi" target="_blank" class="dl-btn">🍎 APP STORE</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.network.proxy" target="_blank" class="dl-btn">🤖 CH PLAY</a>
+                    </div>
+                </div>
+
+                <div class="download-item premium-item">
+                    <span class="download-icon">📄</span>
+                    <div class="download-info">
+                        <strong class="gold-text">File JSON Redirect - FF Thường</strong>
+                        <p>Rule redirect ver.php cho Free Fire gốc</p>
+                    </div>
+                    <div class="download-btns">
+                        <button onclick="downloadJSON('ff_normal')" class="dl-btn gold">📥 TẢI JSON</button>
+                    </div>
+                </div>
+
+                <div class="download-item max-item">
+                    <span class="download-icon">📄</span>
+                    <div class="download-info">
+                        <strong class="red-text">File JSON Redirect - FF Max</strong>
+                        <p>Rule redirect ver.php cho Free Fire Max</p>
+                    </div>
+                    <div class="download-btns">
+                        <button onclick="downloadJSON('ff_max')" class="dl-btn red">📥 TẢI JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             <div class="copyright">
                 <span>© Bản quyền thuộc về</span>
@@ -921,7 +1052,6 @@
         </div>
     </div>
 
-    <!-- ===== MODAL: ACTIVATE KEY ===== -->
     <div class="modal-overlay" id="activateModal">
         <div class="modal-box">
             <h2>
@@ -934,10 +1064,10 @@
             <input type="text" id="keyInput" placeholder="Nhập key của bạn...">
             <button class="activate-btn" onclick="activateKey()">🔑 KÍCH HOẠT</button>
             <p class="modal-hint">Key Premium hết hạn sau 2 giờ</p>
+            <p class="modal-hint">Liên hệ Admin để mua Owner Key vĩnh viễn</p>
         </div>
     </div>
 
-    <!-- ===== MODAL: GET KEY ===== -->
     <div class="modal-overlay" id="getKeyModal">
         <div class="modal-box">
             <h2>
@@ -946,13 +1076,11 @@
             </h2>
             <p style="font-size:13px;color:#a78bfa;margin-bottom:10px;">Hoàn thành 2 nhiệm vụ (mỗi bước 30 giây):</p>
             
-            <!-- Progress -->
             <div class="progress-container">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
             <p class="progress-text" id="progressText">0% hoàn thành</p>
 
-            <!-- Step 1 -->
             <div class="step-box" id="step1Box">
                 <div class="step-header">
                     <span class="step-num" id="step1Num">1</span>
@@ -963,7 +1091,6 @@
                 <p class="step-timer" id="step1Timer"></p>
             </div>
 
-            <!-- Step 2 -->
             <div class="step-box locked" id="step2Box">
                 <div class="step-header">
                     <span class="step-num" id="step2Num">2</span>
@@ -974,21 +1101,17 @@
                 <p class="step-timer" id="step2Timer"></p>
             </div>
 
-            <!-- Claim -->
             <button class="activate-btn" id="claimBtn" onclick="claimKey()" style="display:none;">🎁 CLAIM KEY</button>
             <div class="key-display" id="claimedKey"></div>
             <p class="claim-msg" id="claimMsg"></p>
         </div>
     </div>
 
-    <!-- TOAST -->
     <div class="toast" id="toast"></div>
 
     <script>
-        // ===== KEY SYSTEM =====
-        var OWNER_KEY = 'SHADOW-KEYSYSTEM-ADMIN';
+        var OWNER_KEY = 'ADMIN-KEY-SYSTEM';
 
-        // Pool Key Premium (format SHADOW-XXXX-XXXX-XXXX)
         var PREMIUM_KEYS_POOL = [
             'SHADOW-4X7K-9M2W-QRTY','SHADOW-8N3Y-1B5V-RPLK','SHADOW-2C6Z-7H4L-PMNB','SHADOW-5D9A-3E8M-JVCX',
             'SHADOW-1F4B-6G0K-XZQW','SHADOW-7H2C-9L5N-WERT','SHADOW-3J8D-1M6P-VBNM','SHADOW-5K0E-4N7Q-ULOP',
@@ -1016,20 +1139,15 @@
             'SHADOW-2U1Q-7X0Z-ULOP','SHADOW-4V3R-9Y2A-VGJK','SHADOW-6W5S-1Z4B-WHGF'
         ];
 
-        // Key đã claim
         var usedKeys = JSON.parse(localStorage.getItem('ff_used_keys') || '[]');
-
         var accountType = 'FREE';
         var premiumExpiry = null;
         var countdownInterval = null;
-
-        // Get Key state
         var step1Done = false;
         var step2Done = false;
         var step1Timer = null;
         var step2Timer = null;
 
-        // ===== SNOW =====
         function createSnow() {
             var container = document.getElementById('snowContainer');
             var symbols = ['❄','❅','❆','✦','✧','•','·','❋'];
@@ -1047,7 +1165,6 @@
         }
         createSnow();
 
-        // ===== INIT =====
         document.addEventListener('DOMContentLoaded', function() {
             checkSession();
             updateUI();
@@ -1104,7 +1221,6 @@
             }
         }
 
-        // ===== DROPDOWN =====
         function toggleDropdown() {
             var menu = document.getElementById('dropdownMenu');
             menu.classList.toggle('show');
@@ -1116,7 +1232,6 @@
             }
         });
 
-        // ===== MODALS =====
         function openActivateKey() {
             document.getElementById('dropdownMenu').classList.remove('show');
             document.getElementById('activateModal').style.display = 'flex';
@@ -1131,8 +1246,6 @@
         function openGetKey() {
             document.getElementById('dropdownMenu').classList.remove('show');
             document.getElementById('getKeyModal').style.display = 'flex';
-            
-            // Reset
             resetGetKeyUI();
         }
 
@@ -1151,7 +1264,6 @@
             document.getElementById('progressBar').style.width = '0%';
             document.getElementById('progressText').textContent = '0% hoàn thành';
             
-            // Step 1
             document.getElementById('step1Box').classList.remove('locked');
             document.getElementById('step1Btn').disabled = false;
             document.getElementById('step1Btn').textContent = '✅ TÔI ĐÃ JOIN - XÁC NHẬN (30s)';
@@ -1161,7 +1273,6 @@
             document.getElementById('step1Num').textContent = '1';
             document.getElementById('step1Num').classList.remove('done');
 
-            // Step 2
             document.getElementById('step2Box').classList.add('locked');
             document.getElementById('step2Btn').disabled = true;
             document.getElementById('step2Btn').textContent = '✅ TÔI ĐÃ SUB - XÁC NHẬN (30s)';
@@ -1171,13 +1282,11 @@
             document.getElementById('step2Num').textContent = '2';
             document.getElementById('step2Num').classList.remove('done');
 
-            // Claim
             document.getElementById('claimBtn').style.display = 'none';
             document.getElementById('claimedKey').style.display = 'none';
             document.getElementById('claimMsg').style.display = 'none';
         }
 
-        // ===== STEP 1 =====
         function startStep1() {
             var btn = document.getElementById('step1Btn');
             var timerEl = document.getElementById('step1Timer');
@@ -1208,14 +1317,12 @@
                     progress.style.width = '50%';
                     progressText.textContent = '50% hoàn thành - Tiếp tục bước 2';
 
-                    // Mở khóa step 2
                     document.getElementById('step2Box').classList.remove('locked');
                     document.getElementById('step2Btn').disabled = false;
                 }
             }, 1000);
         }
 
-        // ===== STEP 2 =====
         function startStep2() {
             var btn = document.getElementById('step2Btn');
             var timerEl = document.getElementById('step2Timer');
@@ -1246,13 +1353,11 @@
                     progress.style.width = '100%';
                     progressText.textContent = '100% hoàn thành!';
 
-                    // Hiện Claim
                     document.getElementById('claimBtn').style.display = 'block';
                 }
             }, 1000);
         }
 
-        // ===== CLAIM KEY =====
         function claimKey() {
             if (!step1Done || !step2Done) {
                 showToast('❌ Hoàn thành cả 2 bước trước!', 'error');
@@ -1263,7 +1368,6 @@
             var keyDiv = document.getElementById('claimedKey');
             var claimBtn = document.getElementById('claimBtn');
 
-            // Tìm key chưa dùng
             var availableKeys = [];
             for (var i = 0; i < PREMIUM_KEYS_POOL.length; i++) {
                 if (usedKeys.indexOf(PREMIUM_KEYS_POOL[i]) === -1) {
@@ -1291,7 +1395,6 @@
             showToast('🎉 Key đã được cấp! Vào Nhập Key để kích hoạt!', 'success');
         }
 
-        // ===== ACTIVATE KEY =====
         function activateKey() {
             var key = document.getElementById('keyInput').value.trim();
             if (!key) { showToast('Vui lòng nhập key!', 'error'); return; }
@@ -1303,9 +1406,7 @@
                 showToast('👑 OWNER ACTIVATED! Vĩnh viễn!', 'success'); return;
             }
 
-            // Kiểm tra trong pool
             if (PREMIUM_KEYS_POOL.indexOf(key) !== -1) {
-                // Kiểm tra key đã được kích hoạt bởi ai khác chưa (trên cùng trình duyệt)
                 var activatedKeys = JSON.parse(localStorage.getItem('ff_activated_keys') || '[]');
                 if (activatedKeys.indexOf(key) !== -1) {
                     showToast('❌ Key này đã được sử dụng!', 'error');
@@ -1317,7 +1418,6 @@
                 localStorage.setItem('ff_type', 'PREMIUM');
                 localStorage.setItem('ff_expiry', premiumExpiry.toString());
                 
-                // Đánh dấu key đã kích hoạt
                 activatedKeys.push(key);
                 localStorage.setItem('ff_activated_keys', JSON.stringify(activatedKeys));
                 
@@ -1328,7 +1428,6 @@
             }
         }
 
-        // ===== COUNTDOWN =====
         function startCountdown() {
             stopCountdown();
             if (accountType === 'OWNER') return;
@@ -1347,7 +1446,6 @@
             if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
         }
 
-        // ===== INJECT =====
         function injectMod() {
             var uid = document.getElementById('uid').value.trim();
             if (!uid) { showToast('Vui lòng nhập UID!', 'error'); return; }
@@ -1371,14 +1469,77 @@
             else showToast('⚡ INJECTED! Nâng cấp Premium để mở khóa!', 'success');
         }
 
-        // ===== TOAST =====
+        function downloadJSON(type) {
+            var jsonData, filename;
+            
+            if (type === 'ff_normal') {
+                jsonData = [
+                    {
+                        "name": "0xKibo_FF_Normal",
+                        "enabled": true,
+                        "url": "*://*/live/ver.php",
+                        "type": "redirect",
+                        "items": [{
+                            "enabled": true,
+                            "type": "redirect",
+                            "values": {
+                                "redirectUrl": "https://versions.garenanow.live/live/ver.php"
+                            }
+                        }]
+                    }
+                ];
+                filename = "ff_normal_redirect.json";
+            } else {
+                jsonData = [
+                    {
+                        "name": "0xKibo_FF_Max",
+                        "enabled": true,
+                        "url": "*://*/max/ver.php",
+                        "type": "redirect",
+                        "items": [{
+                            "enabled": true,
+                            "type": "redirect",
+                            "values": {
+                                "redirectUrl": "https://versions.garenanow.live/max/ver.php"
+                            }
+                        }]
+                    },
+                    {
+                        "name": "0xKibo_FF_Max_Backup",
+                        "enabled": true,
+                        "url": "*://*ffmax*/ver.php",
+                        "type": "redirect",
+                        "items": [{
+                            "enabled": true,
+                            "type": "redirect",
+                            "values": {
+                                "redirectUrl": "https://versions.garenanow.live/max/ver.php"
+                            }
+                        }]
+                    }
+                ];
+                filename = "ff_max_redirect.json";
+            }
+            
+            var blob = new Blob([JSON.stringify(jsonData, null, 4)], {type: 'application/json'});
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            showToast('✅ Đã tải ' + filename + '! Import vào ProxyPin để dùng.', 'success');
+        }
+
         function showToast(msg, type) {
             var toast = document.getElementById('toast');
             toast.textContent = msg; toast.className = 'toast ' + type;
             setTimeout(function() { toast.className = 'toast'; }, 4000);
         }
 
-        // Close modals on overlay click
         document.addEventListener('click', function(e) {
             if (e.target.id === 'activateModal') closeActivateModal();
             if (e.target.id === 'getKeyModal') closeGetKeyModal();
