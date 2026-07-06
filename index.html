@@ -6,33 +6,143 @@
     <title>SHADOW | Mod Skin</title>
     <style>
         :root {
-            --bg: #0d0d0d;
-            --card: #1a1a1a;
-            --border: #2a2a2a;
+            --bg: #0a0010;
+            --card: rgba(20, 5, 30, 0.9);
+            --border: #3a2060;
+            --purple: #9b30ff;
             --gold: #f0c040;
             --red: #e03030;
-            --green: #30c030;
-            --text: #ccc;
-            --text-dim: #777;
+            --blue: #5865F2;
+            --text: #d0c0e0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
+            background: linear-gradient(180deg, #0a0010 0%, #120020 30%, #0d0018 60%, #0a0010 100%);
             color: var(--text);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* ===== SNOW EFFECT ===== */
+        .snow-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            animation: fall linear infinite;
+            opacity: 0.7;
+            text-shadow: 0 0 5px rgba(200, 150, 255, 0.5);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* ===== APP ===== */
         .app {
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            background: linear-gradient(180deg, #c084fc 0%, #7c3aed 30%, #5b21b6 60%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.6));
+            margin-bottom: 5px;
+            animation: glow-text 3s ease-in-out infinite;
+        }
+
+        .hero .subtitle {
+            font-size: 14px;
+            color: #a78bfa;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        @keyframes glow-text {
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.6)); }
+            50% { filter: drop-shadow(0 0 50px rgba(167, 139, 250, 0.9)); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: none;
+            text-transform: uppercase;
+        }
+
+        .hero-btn.discord {
+            background: #5865F2;
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(88, 101, 242, 0.5);
+        }
+
+        .hero-btn.discord:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(88, 101, 242, 0.7);
+        }
+
+        .hero-btn.youtube {
+            background: #e03030;
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(224, 48, 48, 0.5);
+        }
+
+        .hero-btn.youtube:hover {
+            background: #c02020;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(224, 48, 48, 0.7);
         }
 
         /* ===== TOP BAR ===== */
@@ -42,9 +152,10 @@
             justify-content: space-between;
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 12px 20px;
             margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .logo-area {
@@ -56,42 +167,34 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border: 2px solid #304080;
+            background: linear-gradient(135deg, #2d1b4e, #4c1d95);
+            border: 2px solid #7c3aed;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            color: #6080ff;
-            text-shadow: 0 0 10px rgba(96,128,255,0.6);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
+            color: #a78bfa;
+            text-shadow: 0 0 15px rgba(167, 139, 250, 0.6);
         }
 
         .logo-text .main {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             letter-spacing: 2px;
-            background: linear-gradient(90deg, #6080ff, #a0b0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #c084fc;
         }
 
         .logo-text .sub {
-            font-size: 10px;
-            color: #6080ff;
+            font-size: 9px;
+            color: #7c3aed;
             letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .status-badge {
@@ -104,70 +207,123 @@
         }
 
         .status-badge.free {
-            background: #2a2a2a;
-            color: #888;
-            border: 1px solid #444;
+            background: #1a1025;
+            color: #7c3aed;
+            border: 1px solid #5b21b6;
         }
 
         .status-badge.premium {
-            background: linear-gradient(135deg, #3d2e00, #5a4200);
+            background: linear-gradient(135deg, #2d1b00, #4a2e00);
             color: #f0c040;
             border: 1px solid #f0c040;
             animation: pulse-gold 2s infinite;
         }
 
         .status-badge.owner {
-            background: linear-gradient(135deg, #3d0000, #600000);
+            background: linear-gradient(135deg, #2d0000, #4a0000);
             color: #ff4040;
             border: 1px solid #ff4040;
             animation: pulse-red 1.5s infinite;
-            text-shadow: 0 0 8px rgba(255,64,64,0.6);
+            text-shadow: 0 0 10px rgba(255,64,64,0.6);
         }
 
         .settings-btn {
-            background: #252525;
-            border: 1px solid #444;
-            color: #ccc;
+            background: #1a1025;
+            border: 1px solid #5b21b6;
+            color: #c084fc;
             padding: 8px 16px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 13px;
             font-weight: 600;
             transition: 0.2s;
+            letter-spacing: 1px;
         }
 
         .settings-btn:hover {
-            background: #333;
-            border-color: #6080ff;
+            background: #2d1b4e;
+            border-color: #a78bfa;
             color: #fff;
+        }
+
+        /* ===== DROPDOWN MENU ===== */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #1a1025;
+            border: 1px solid #5b21b6;
+            border-radius: 12px;
+            padding: 8px 0;
+            min-width: 220px;
+            z-index: 100;
+            box-shadow: 0 10px 40px rgba(91, 33, 182, 0.4);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu a,
+        .dropdown-menu .menu-item {
+            display: block;
+            padding: 12px 20px;
+            color: #c084fc;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu .menu-item:hover {
+            background: #2d1b4e;
+            color: #fff;
+        }
+
+        .dropdown-menu .divider {
+            border-top: 1px solid #3a2060;
+            margin: 4px 0;
         }
 
         /* ===== WHY SECTION ===== */
         .why-section {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
             margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .why-section h3 {
             font-size: 15px;
-            color: #6080ff;
+            color: #a78bfa;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 12px;
         }
 
         .feature-item {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 8px;
+            background: rgba(45, 27, 78, 0.5);
+            border: 1px solid #3a2060;
+            border-radius: 10px;
             padding: 12px;
             display: flex;
             align-items: center;
@@ -175,10 +331,7 @@
             font-size: 13px;
         }
 
-        .feature-item .icon {
-            font-size: 20px;
-            flex-shrink: 0;
-        }
+        .feature-item .icon { font-size: 20px; flex-shrink: 0; }
 
         /* ===== MAIN CONTENT ===== */
         .main-content {
@@ -189,24 +342,25 @@
         }
 
         @media (max-width: 700px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
+            .main-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 32px; }
+            .hero-btn { padding: 14px 24px; font-size: 14px; }
         }
 
         /* ===== INJECT PANEL ===== */
         .inject-panel {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
             display: flex;
             flex-direction: column;
+            backdrop-filter: blur(10px);
         }
 
         .inject-panel h3 {
             font-size: 14px;
-            color: #aaa;
+            color: #a78bfa;
             margin-bottom: 15px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -214,10 +368,10 @@
 
         .inject-panel input {
             width: 100%;
-            padding: 12px 15px;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 8px;
+            padding: 14px 15px;
+            background: rgba(10, 0, 16, 0.8);
+            border: 1px solid #3a2060;
+            border-radius: 10px;
             color: #fff;
             font-size: 15px;
             margin-bottom: 12px;
@@ -226,49 +380,48 @@
         }
 
         .inject-panel input:focus {
-            border-color: #6080ff;
-            box-shadow: 0 0 10px rgba(96,128,255,0.2);
+            border-color: #7c3aed;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
         }
 
         .inject-btn {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #304080, #1a3060);
+            padding: 15px;
+            background: linear-gradient(135deg, #5b21b6, #7c3aed);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             color: #fff;
             font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-weight: 800;
+            letter-spacing: 3px;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 5px;
+            text-transform: uppercase;
         }
 
         .inject-btn:hover {
-            background: linear-gradient(135deg, #4058a0, #204080);
-            box-shadow: 0 0 20px rgba(96,128,255,0.3);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+            transform: translateY(-2px);
         }
 
-        .inject-btn:active {
-            transform: scale(0.98);
-        }
+        .inject-btn:active { transform: scale(0.97); }
 
         /* ===== MOD PANEL ===== */
         .mod-panel {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s;
+            backdrop-filter: blur(10px);
         }
 
         .mod-panel.locked {
-            opacity: 0.4;
-            filter: grayscale(60%);
+            opacity: 0.35;
+            filter: grayscale(50%);
             pointer-events: none;
         }
 
@@ -277,11 +430,11 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-15deg);
-            font-size: 32px;
+            transform: translate(-50%, -50%) rotate(-12deg);
+            font-size: 36px;
             font-weight: 900;
-            color: rgba(240, 192, 64, 0.3);
-            letter-spacing: 4px;
+            color: rgba(240, 192, 64, 0.25);
+            letter-spacing: 6px;
             pointer-events: none;
             z-index: 1;
             white-space: nowrap;
@@ -289,7 +442,7 @@
 
         .mod-panel h3 {
             font-size: 14px;
-            color: #aaa;
+            color: #a78bfa;
             margin-bottom: 15px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -305,7 +458,7 @@
         .mod-row label {
             flex: 0 0 90px;
             font-size: 12px;
-            color: #999;
+            color: #a78bfa;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -314,9 +467,9 @@
         .mod-row select {
             flex: 1;
             padding: 10px 12px;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 6px;
+            background: rgba(10, 0, 16, 0.8);
+            border: 1px solid #3a2060;
+            border-radius: 8px;
             color: #fff;
             font-size: 14px;
             outline: none;
@@ -326,13 +479,13 @@
         .mod-row input:focus,
         .mod-row select:focus {
             border-color: #f0c040;
-            box-shadow: 0 0 8px rgba(240,192,64,0.15);
+            box-shadow: 0 0 10px rgba(240, 192, 64, 0.2);
         }
 
         .mod-row input:disabled,
         .mod-row select:disabled {
-            background: #080808;
-            color: #444;
+            background: rgba(5, 0, 10, 0.8);
+            color: #333;
             cursor: not-allowed;
         }
 
@@ -340,7 +493,7 @@
         .footer {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -348,17 +501,12 @@
             flex-wrap: wrap;
             gap: 10px;
             font-size: 11px;
-            color: #555;
-        }
-
-        .footer .copyright {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: #4c1d95;
+            backdrop-filter: blur(10px);
         }
 
         .footer .copyright .team {
-            color: #6080ff;
+            color: #a78bfa;
             font-weight: 700;
             letter-spacing: 1px;
         }
@@ -380,24 +528,25 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(5, 0, 10, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .modal-box {
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: #1a1025;
+            border: 1px solid #5b21b6;
             border-radius: 16px;
             padding: 25px;
             width: 90%;
-            max-width: 420px;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(91, 33, 182, 0.5);
         }
 
         .modal-box h2 {
             font-size: 18px;
-            color: #6080ff;
+            color: #c084fc;
             letter-spacing: 2px;
             margin-bottom: 20px;
             display: flex;
@@ -407,21 +556,19 @@
 
         .modal-box .close-modal {
             cursor: pointer;
-            font-size: 22px;
-            color: #666;
+            font-size: 24px;
+            color: #5b21b6;
             transition: 0.2s;
         }
 
-        .modal-box .close-modal:hover {
-            color: #fff;
-        }
+        .modal-box .close-modal:hover { color: #a78bfa; }
 
         .modal-box input {
             width: 100%;
-            padding: 12px;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 8px;
+            padding: 12px 15px;
+            background: rgba(10, 0, 16, 0.8);
+            border: 1px solid #3a2060;
+            border-radius: 10px;
             color: #fff;
             font-size: 14px;
             margin-bottom: 15px;
@@ -429,30 +576,33 @@
         }
 
         .modal-box input:focus {
-            border-color: #6080ff;
+            border-color: #7c3aed;
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
         }
 
         .modal-box .activate-btn {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background: linear-gradient(135deg, #f0c040, #c09020);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             color: #000;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 15px;
             cursor: pointer;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: 0.2s;
         }
 
         .modal-box .activate-btn:hover {
             background: linear-gradient(135deg, #f8d060, #d0a830);
+            box-shadow: 0 0 25px rgba(240, 192, 64, 0.4);
         }
 
         .modal-hint {
             font-size: 11px;
-            color: #555;
+            color: #4c1d95;
             text-align: center;
             margin-top: 12px;
         }
@@ -465,14 +615,48 @@
             font-weight: 600;
         }
 
-        /* ===== STATUS TOAST ===== */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .step-list li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: rgba(45, 27, 78, 0.5);
+            border: 1px solid #3a2060;
+            border-radius: 8px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-list li .step-num {
+            width: 28px; height: 28px;
+            background: #5b21b6;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 13px; flex-shrink: 0;
+        }
+
+        .step-list li a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .step-list li a:hover { text-decoration: underline; }
+
+        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 14px 30px;
+            border-radius: 30px;
             font-weight: 700;
             font-size: 14px;
             z-index: 2000;
@@ -481,7 +665,7 @@
         }
 
         .toast.success {
-            background: #103010;
+            background: rgba(16, 40, 16, 0.95);
             border: 1px solid #30c030;
             color: #30c030;
             display: block;
@@ -489,7 +673,7 @@
         }
 
         .toast.error {
-            background: #301010;
+            background: rgba(40, 10, 10, 0.95);
             border: 1px solid #e03030;
             color: #e03030;
             display: block;
@@ -503,17 +687,34 @@
 
         @keyframes pulse-gold {
             0%, 100% { box-shadow: 0 0 6px rgba(240,192,64,0.4); }
-            50% { box-shadow: 0 0 16px rgba(240,192,64,0.8); }
+            50% { box-shadow: 0 0 20px rgba(240,192,64,0.9); }
         }
 
         @keyframes pulse-red {
             0%, 100% { box-shadow: 0 0 6px rgba(255,64,64,0.4); }
-            50% { box-shadow: 0 0 18px rgba(255,64,64,0.9); }
+            50% { box-shadow: 0 0 22px rgba(255,64,64,1); }
         }
     </style>
 </head>
 <body>
+    <!-- SNOW -->
+    <div class="snow-container" id="snowContainer"></div>
+
     <div class="app">
+        <!-- ===== HERO ===== -->
+        <div class="hero">
+            <h1>SHADOW MOD SKIN</h1>
+            <p class="subtitle">Private Build v99.9</p>
+            <div class="hero-buttons">
+                <a href="https://discord.gg/bFv8TPCBKF" target="_blank" class="hero-btn discord">
+                    💬 JOIN DISCORD
+                </a>
+                <a href="https://youtube.com/@Shadow_System_yt" target="_blank" class="hero-btn youtube">
+                    ▶️ ĐĂNG KÍ YOUTUBE
+                </a>
+            </div>
+        </div>
+
         <!-- ===== TOP BAR ===== -->
         <div class="topbar">
             <div class="logo-area">
@@ -525,7 +726,16 @@
             </div>
             <div class="topbar-right">
                 <span class="status-badge free" id="statusBadge">FREE</span>
-                <button class="settings-btn" onclick="openSettings()">CÀI ĐẶT</button>
+                <div class="dropdown">
+                    <button class="settings-btn" onclick="toggleDropdown()">⚙️ CÀI ĐẶT ▾</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a class="menu-item" onclick="openGetKey()">🔑 Get Key PREMIUM FREE</a>
+                        <div class="divider"></div>
+                        <a class="menu-item" onclick="openActivateKey()">🔓 Nhập Key</a>
+                        <div class="divider"></div>
+                        <a href="https://discord.gg/bFv8TPCBKF" target="_blank" class="menu-item">💬 Join Discord</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -564,38 +774,12 @@
             <!-- MOD PANEL -->
             <div class="mod-panel locked" id="modPanel">
                 <h3>🔧 TUỲ CHỈNH MOD</h3>
-                
-                <div class="mod-row">
-                    <label>💎 Kim Cương</label>
-                    <input type="number" id="diamonds" placeholder="0" disabled>
-                </div>
-                <div class="mod-row">
-                    <label>🪙 Vàng</label>
-                    <input type="number" id="gold" placeholder="0" disabled>
-                </div>
-                <div class="mod-row">
-                    <label>📊 Level</label>
-                    <input type="number" id="level" placeholder="1-100" disabled>
-                </div>
-                <div class="mod-row">
-                    <label>📱 Giả Lập</label>
-                    <select id="emuCheck" disabled>
-                        <option>Tắt check giả lập</option>
-                        <option>Bật check giả lập</option>
-                    </select>
-                </div>
-                <div class="mod-row">
-                    <label>👑 Prime</label>
-                    <select id="prime" disabled>
-                        <option>Prime 1</option><option>Prime 2</option><option>Prime 3</option>
-                        <option>Prime 4</option><option>Prime 5</option><option>Prime 6</option>
-                        <option>Prime 7</option><option>Prime 8</option>
-                    </select>
-                </div>
-                <div class="mod-row">
-                    <label>✏️ Tên Player</label>
-                    <input type="text" id="playerName" placeholder="Tên hiển thị..." disabled>
-                </div>
+                <div class="mod-row"><label>💎 Kim Cương</label><input type="number" id="diamonds" placeholder="0" disabled></div>
+                <div class="mod-row"><label>🪙 Vàng</label><input type="number" id="gold" placeholder="0" disabled></div>
+                <div class="mod-row"><label>📊 Level</label><input type="number" id="level" placeholder="1-100" disabled></div>
+                <div class="mod-row"><label>📱 Giả Lập</label><select id="emuCheck" disabled><option>Tắt check giả lập</option><option>Bật check giả lập</option></select></div>
+                <div class="mod-row"><label>👑 Prime</label><select id="prime" disabled><option>Prime 1</option><option>Prime 2</option><option>Prime 3</option><option>Prime 4</option><option>Prime 5</option><option>Prime 6</option><option>Prime 7</option><option>Prime 8</option></select></div>
+                <div class="mod-row"><label>✏️ Tên Player</label><input type="text" id="playerName" placeholder="Tên hiển thị..." disabled></div>
             </div>
         </div>
 
@@ -607,66 +791,124 @@
                 <span class="year">2026</span>
             </div>
             <div class="warning">
-                ⚠️ CẢNH BÁO: Nếu tài khoản bị BAN, chúng tôi KHÔNG chịu trách nhiệm. 
-                Hệ thống không thể kiểm soát việc BAN từ phía máy chủ.
+                ⚠️ CẢNH BÁO: Nếu tài khoản bị BAN, chúng tôi KHÔNG chịu trách nhiệm. Hệ thống không thể kiểm soát việc BAN từ phía máy chủ.
             </div>
         </div>
     </div>
 
-    <!-- ===== MODAL SETTINGS ===== -->
-    <div class="modal-overlay" id="settingsModal">
+    <!-- ===== MODAL: ACTIVATE KEY ===== -->
+    <div class="modal-overlay" id="activateModal">
         <div class="modal-box">
             <h2>
-                ⚙️ SHADOW KEY SYSTEM
-                <span class="close-modal" onclick="closeSettings()">&times;</span>
+                🔓 NHẬP KEY KÍCH HOẠT
+                <span class="close-modal" onclick="closeActivateModal()">&times;</span>
             </h2>
-            <p style="font-size:13px;color:#999;margin-bottom:12px;">
-                Trạng thái hiện tại: <strong id="modalStatus">FREE</strong>
+            <p style="font-size:13px;color:#a78bfa;margin-bottom:12px;">
+                Trạng thái: <strong id="modalStatus">FREE</strong>
             </p>
-            <input type="text" id="keyInput" placeholder="Nhập key kích hoạt...">
+            <input type="text" id="keyInput" placeholder="Nhập key của bạn...">
             <button class="activate-btn" onclick="activateKey()">🔑 KÍCH HOẠT</button>
-            <p class="modal-hint">100 Key Premium có sẵn - Hết hạn sau 2 giờ</p>
+            <p class="modal-hint">Key Premium hết hạn sau 2 giờ</p>
         </div>
     </div>
 
-    <!-- ===== TOAST ===== -->
+    <!-- ===== MODAL: GET KEY ===== -->
+    <div class="modal-overlay" id="getKeyModal">
+        <div class="modal-box">
+            <h2>
+                🔑 GET KEY PREMIUM FREE
+                <span class="close-modal" onclick="closeGetKeyModal()">&times;</span>
+            </h2>
+            <p style="font-size:13px;color:#a78bfa;margin-bottom:15px;">Hoàn thành 2 bước để nhận key:</p>
+            <ul class="step-list">
+                <li>
+                    <span class="step-num">1</span>
+                    <span>Join Discord: <a href="https://discord.gg/bFv8TPCBKF" target="_blank">discord.gg/bFv8TPCBKF</a></span>
+                </li>
+                <li>
+                    <span class="step-num">2</span>
+                    <span>Đăng kí YouTube: <a href="https://youtube.com/@Shadow_System_yt" target="_blank">@Shadow_System_yt</a></span>
+                </li>
+            </ul>
+            <button class="activate-btn" onclick="claimKey()">✅ TÔI ĐÃ HOÀN THÀNH - NHẬN KEY</button>
+            <p class="modal-hint">Key sẽ hiển thị sau khi bạn xác nhận</p>
+            <div id="claimedKey" style="display:none; margin-top:15px; padding:15px; background:rgba(45,27,78,0.8); border:1px solid #7c3aed; border-radius:10px; text-align:center; font-size:16px; font-weight:800; color:#f0c040; letter-spacing:2px; word-break:break-all;"></div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
     <div class="toast" id="toast"></div>
 
     <script>
         // ===== KEY SYSTEM =====
         var OWNER_KEY = 'SHADOW-KEYSYSTEM-ADMIN';
 
+        // 200 Premium Keys (100 cũ + 100 mới)
         var PREMIUM_KEYS = [
-            'PRE-4X7K-9M2W-Q','PRE-8N3Y-1B5V-R','PRE-2C6Z-7H4L-P','PRE-5D9A-3E8M-J',
-            'PRE-1F4B-6G0K-X','PRE-7H2C-9L5N-W','PRE-3J8D-1M6P-V','PRE-5K0E-4N7Q-U',
-            'PRE-9L1F-8O2R-T','PRE-2M3G-7P5S-Y','PRE-4N6H-1Q8W-A','PRE-8O9J-5R4X-B',
-            'PRE-1P2K-9S6Y-C','PRE-3Q4L-2T7Z-D','PRE-7R6M-8U1W-E','PRE-5S8N-4V3X-F',
-            'PRE-9T0P-6W5Y-G','PRE-2U1Q-7X8Z-H','PRE-4V3R-9Y2A-I','PRE-6W5S-1Z4B-J',
-            'PRE-8X7T-3A6C-K','PRE-0Y9U-5B8D-L','PRE-2Z1V-7C0E-M','PRE-4A3W-9D2F-N',
-            'PRE-6B5X-1E4G-O','PRE-8C7Y-3F6H-P','PRE-0D9Z-5G8J-Q','PRE-2E1A-7H0K-R',
-            'PRE-4F3B-9J2L-S','PRE-6G5C-1K4M-T','PRE-8H7D-3L6N-U','PRE-0J9E-5M8O-V',
-            'PRE-2K1F-7N0P-W','PRE-4L3G-9O2Q-X','PRE-6M5H-1P4R-Y','PRE-8N7J-3Q6S-Z',
-            'PRE-0O9K-5R8T-A','PRE-2P1L-7S0U-B','PRE-4Q3M-9T2V-C','PRE-6R5N-1U4W-D',
-            'PRE-8S7O-3V6X-E','PRE-0T9P-5W8Y-F','PRE-2U1Q-7X0Z-G','PRE-4V3R-9Y2A-H',
-            'PRE-6W5S-1Z4B-I','PRE-8X7T-3A6C-J','PRE-0Y9U-5B8D-K','PRE-2Z1V-7C0E-L',
-            'PRE-4A3W-9D2F-M','PRE-6B5X-1E4G-N','PRE-8C7Y-3F6H-O','PRE-0D9Z-5G8J-P',
-            'PRE-2E1A-7H0K-Q','PRE-4F3B-9J2L-R','PRE-6G5C-1K4M-S','PRE-8H7D-3L6N-T',
-            'PRE-0J9E-5M8O-U','PRE-2K1F-7N0P-V','PRE-4L3G-9O2Q-W','PRE-6M5H-1P4R-X',
-            'PRE-8N7J-3Q6S-Y','PRE-0O9K-5R8T-Z','PRE-2P1L-7S0U-1','PRE-4Q3M-9T2V-2',
-            'PRE-6R5N-1U4W-3','PRE-8S7O-3V6X-4','PRE-0T9P-5W8Y-5','PRE-2U1Q-7X0Z-6',
-            'PRE-4V3R-9Y2A-7','PRE-6W5S-1Z4B-8','PRE-8X7T-3A6C-9','PRE-0Y9U-5B8D-0',
-            'PRE-2Z1V-7C0E-A','PRE-4A3W-9D2F-B','PRE-6B5X-1E4G-C','PRE-8C7Y-3F6H-D',
-            'PRE-0D9Z-5G8J-E','PRE-2E1A-7H0K-F','PRE-4F3B-9J2L-G','PRE-6G5C-1K4M-H',
-            'PRE-8H7D-3L6N-I','PRE-0J9E-5M8O-J','PRE-2K1F-7N0P-K','PRE-4L3G-9O2Q-L',
-            'PRE-6M5H-1P4R-M','PRE-8N7J-3Q6S-N','PRE-0O9K-5R8T-O','PRE-2P1L-7S0U-P',
-            'PRE-4Q3M-9T2V-Q','PRE-6R5N-1U4W-R','PRE-8S7O-3V6X-S','PRE-0T9P-5W8Y-T',
-            'PRE-2U1Q-7X0Z-U','PRE-4V3R-9Y2A-V','PRE-6W5S-1Z4B-W','PRE-8X7T-3A6C-X',
-            'PRE-0Y9U-5B8D-Y','PRE-2Z1V-7C0E-Z'
+            'PRE-4X7K-9M2W-Q','PRE-8N3Y-1B5V-R','PRE-2C6Z-7H4L-P','PRE-5D9A-3E8M-J','PRE-1F4B-6G0K-X',
+            'PRE-7H2C-9L5N-W','PRE-3J8D-1M6P-V','PRE-5K0E-4N7Q-U','PRE-9L1F-8O2R-T','PRE-2M3G-7P5S-Y',
+            'PRE-4N6H-1Q8W-A','PRE-8O9J-5R4X-B','PRE-1P2K-9S6Y-C','PRE-3Q4L-2T7Z-D','PRE-7R6M-8U1W-E',
+            'PRE-5S8N-4V3X-F','PRE-9T0P-6W5Y-G','PRE-2U1Q-7X8Z-H','PRE-4V3R-9Y2A-I','PRE-6W5S-1Z4B-J',
+            'PRE-8X7T-3A6C-K','PRE-0Y9U-5B8D-L','PRE-2Z1V-7C0E-M','PRE-4A3W-9D2F-N','PRE-6B5X-1E4G-O',
+            'PRE-8C7Y-3F6H-P','PRE-0D9Z-5G8J-Q','PRE-2E1A-7H0K-R','PRE-4F3B-9J2L-S','PRE-6G5C-1K4M-T',
+            'PRE-8H7D-3L6N-U','PRE-0J9E-5M8O-V','PRE-2K1F-7N0P-W','PRE-4L3G-9O2Q-X','PRE-6M5H-1P4R-Y',
+            'PRE-8N7J-3Q6S-Z','PRE-0O9K-5R8T-A','PRE-2P1L-7S0U-B','PRE-4Q3M-9T2V-C','PRE-6R5N-1U4W-D',
+            'PRE-8S7O-3V6X-E','PRE-0T9P-5W8Y-F','PRE-2U1Q-7X0Z-G','PRE-4V3R-9Y2A-H','PRE-6W5S-1Z4B-I',
+            'PRE-8X7T-3A6C-J','PRE-0Y9U-5B8D-K','PRE-2Z1V-7C0E-L','PRE-4A3W-9D2F-M','PRE-6B5X-1E4G-N',
+            'PRE-8C7Y-3F6H-O','PRE-0D9Z-5G8J-P','PRE-2E1A-7H0K-Q','PRE-4F3B-9J2L-R','PRE-6G5C-1K4M-S',
+            'PRE-8H7D-3L6N-T','PRE-0J9E-5M8O-U','PRE-2K1F-7N0P-V','PRE-4L3G-9O2Q-W','PRE-6M5H-1P4R-X',
+            'PRE-8N7J-3Q6S-Y','PRE-0O9K-5R8T-Z','PRE-2P1L-7S0U-1','PRE-4Q3M-9T2V-2','PRE-6R5N-1U4W-3',
+            'PRE-8S7O-3V6X-4','PRE-0T9P-5W8Y-5','PRE-2U1Q-7X0Z-6','PRE-4V3R-9Y2A-7','PRE-6W5S-1Z4B-8',
+            'PRE-8X7T-3A6C-9','PRE-0Y9U-5B8D-0','PRE-2Z1V-7C0E-A','PRE-4A3W-9D2F-B','PRE-6B5X-1E4G-C',
+            'PRE-8C7Y-3F6H-D','PRE-0D9Z-5G8J-E','PRE-2E1A-7H0K-F','PRE-4F3B-9J2L-G','PRE-6G5C-1K4M-H',
+            'PRE-8H7D-3L6N-I','PRE-0J9E-5M8O-J','PRE-2K1F-7N0P-K','PRE-4L3G-9O2Q-L','PRE-6M5H-1P4R-M',
+            'PRE-8N7J-3Q6S-N','PRE-0O9K-5R8T-O','PRE-2P1L-7S0U-P','PRE-4Q3M-9T2V-Q','PRE-6R5N-1U4W-R',
+            'PRE-8S7O-3V6X-S','PRE-0T9P-5W8Y-T','PRE-2U1Q-7X0Z-U','PRE-4V3R-9Y2A-V','PRE-6W5S-1Z4B-W',
+            'PRE-8X7T-3A6C-X','PRE-0Y9U-5B8D-Y','PRE-2Z1V-7C0E-Z',
+            // 100 KEY MOI
+            'PRE-SHDW-A1B2-C3','PRE-SHDW-D4E5-F6','PRE-SHDW-G7H8-I9','PRE-SHDW-J0K1-L2','PRE-SHDW-M3N4-O5',
+            'PRE-SHDW-P6Q7-R8','PRE-SHDW-S9T0-U1','PRE-SHDW-V2W3-X4','PRE-SHDW-Y5Z6-A7','PRE-SHDW-B8C9-D0',
+            'PRE-VIPX-E1F2-G3','PRE-VIPX-H4I5-J6','PRE-VIPX-K7L8-M9','PRE-VIPX-N0O1-P2','PRE-VIPX-Q3R4-S5',
+            'PRE-VIPX-T6U7-V8','PRE-VIPX-W9X0-Y1','PRE-VIPX-Z2A3-B4','PRE-VIPX-C5D6-E7','PRE-VIPX-F8G9-H0',
+            'PRE-MODZ-I1J2-K3','PRE-MODZ-L4M5-N6','PRE-MODZ-O7P8-Q9','PRE-MODZ-R0S1-T2','PRE-MODZ-U3V4-W5',
+            'PRE-MODZ-X6Y7-Z8','PRE-MODZ-A9B0-C1','PRE-MODZ-D2E3-F4','PRE-MODZ-G5H6-I7','PRE-MODZ-J8K9-L0',
+            'PRE-PROX-M1N2-O3','PRE-PROX-P4Q5-R6','PRE-PROX-S7T8-U9','PRE-PROX-V0W1-X2','PRE-PROX-Y3Z4-A5',
+            'PRE-PROX-B6C7-D8','PRE-PROX-E9F0-G1','PRE-PROX-H2I3-J4','PRE-PROX-K5L6-M7','PRE-PROX-N8O9-P0',
+            'PRE-ELTX-Q1R2-S3','PRE-ELTX-T4U5-V6','PRE-ELTX-W7X8-Y9','PRE-ELTX-Z0A1-B2','PRE-ELTX-C3D4-E5',
+            'PRE-ELTX-F6G7-H8','PRE-ELTX-I9J0-K1','PRE-ELTX-L2M3-N4','PRE-ELTX-O5P6-Q7','PRE-ELTX-R8S9-T0',
+            'PRE-NEWX-U1V2-W3','PRE-NEWX-X4Y5-Z6','PRE-NEWX-A7B8-C9','PRE-NEWX-D0E1-F2','PRE-NEWX-G3H4-I5',
+            'PRE-NEWX-J6K7-L8','PRE-NEWX-M9N0-O1','PRE-NEWX-P2Q3-R4','PRE-NEWX-S5T6-U7','PRE-NEWX-V8W9-X0',
+            'PRE-FINX-Y1Z2-A3','PRE-FINX-B4C5-D6','PRE-FINX-E7F8-G9','PRE-FINX-H0I1-J2','PRE-FINX-K3L4-M5',
+            'PRE-FINX-N6O7-P8','PRE-FINX-Q9R0-S1','PRE-FINX-T2U3-V4','PRE-FINX-W5X6-Y7','PRE-FINX-Z8A9-B0',
+            'PRE-LSTX-C1D2-E3','PRE-LSTX-F4G5-H6','PRE-LSTX-I7J8-K9','PRE-LSTX-L0M1-N2','PRE-LSTX-O3P4-Q5',
+            'PRE-LSTX-R6S7-T8','PRE-LSTX-U9V0-W1','PRE-LSTX-X2Y3-Z4','PRE-LSTX-A5B6-C7','PRE-LSTX-D8E9-F0',
+            'PRE-ENDX-G1H2-I3','PRE-ENDX-J4K5-L6','PRE-ENDX-M7N8-O9','PRE-ENDX-P0Q1-R2','PRE-ENDX-S3T4-U5',
+            'PRE-ENDX-V6W7-X8','PRE-ENDX-Y9Z0-A1','PRE-ENDX-B2C3-D4','PRE-ENDX-E5F6-G7','PRE-ENDX-H8I9-J0',
+            'PRE-FULX-K1L2-M3','PRE-FULX-N4O5-P6','PRE-FULX-Q7R8-S9','PRE-FULX-T0U1-V2','PRE-FULX-W3X4-Y5',
+            'PRE-FULX-Z6A7-B8','PRE-FULX-C9D0-E1','PRE-FULX-F2G3-H4','PRE-FULX-I5J6-K7','PRE-FULX-L8M9-N0'
         ];
 
         var accountType = 'FREE';
         var premiumExpiry = null;
         var countdownInterval = null;
+
+        // ===== SNOW =====
+        function createSnow() {
+            var container = document.getElementById('snowContainer');
+            var symbols = ['❄','❅','❆','✦','✧','•','·','❋'];
+            for (var i = 0; i < 60; i++) {
+                var flake = document.createElement('span');
+                flake.className = 'snowflake';
+                flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                flake.style.left = Math.random() * 100 + '%';
+                flake.style.fontSize = (Math.random() * 14 + 6) + 'px';
+                flake.style.opacity = Math.random() * 0.5 + 0.2;
+                flake.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                flake.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(flake);
+            }
+        }
+        createSnow();
 
         // ===== INIT =====
         document.addEventListener('DOMContentLoaded', function() {
@@ -700,65 +942,83 @@
             badge.className = 'status-badge';
 
             if (accountType === 'FREE') {
-                badge.textContent = 'FREE';
-                badge.classList.add('free');
-                modPanel.classList.add('locked');
-                setFieldsEnabled(false);
+                badge.textContent = 'FREE'; badge.classList.add('free');
+                modPanel.classList.add('locked'); setFieldsEnabled(false);
                 if (modalStatus) modalStatus.textContent = 'FREE';
                 stopCountdown();
             } else if (accountType === 'PREMIUM') {
-                badge.textContent = 'PREMIUM';
-                badge.classList.add('premium');
-                modPanel.classList.remove('locked');
-                setFieldsEnabled(true);
+                badge.textContent = 'PREMIUM'; badge.classList.add('premium');
+                modPanel.classList.remove('locked'); setFieldsEnabled(true);
                 if (modalStatus) modalStatus.textContent = 'PREMIUM (2 giờ)';
                 startCountdown();
             } else if (accountType === 'OWNER') {
-                badge.textContent = 'OWNER';
-                badge.classList.add('owner');
-                modPanel.classList.remove('locked');
-                setFieldsEnabled(true);
+                badge.textContent = 'OWNER'; badge.classList.add('owner');
+                modPanel.classList.remove('locked'); setFieldsEnabled(true);
                 if (modalStatus) modalStatus.textContent = 'OWNER (Vĩnh viễn)';
                 stopCountdown();
             }
         }
 
         function setFieldsEnabled(enabled) {
-            var fields = ['diamonds', 'gold', 'level', 'emuCheck', 'prime', 'playerName'];
+            var fields = ['diamonds','gold','level','emuCheck','prime','playerName'];
             for (var i = 0; i < fields.length; i++) {
                 var el = document.getElementById(fields[i]);
                 if (el) el.disabled = !enabled;
             }
         }
 
-        // ===== MODAL =====
-        function openSettings() {
-            document.getElementById('settingsModal').style.display = 'flex';
+        // ===== DROPDOWN =====
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.getElementById('dropdownMenu').classList.remove('show');
+            }
+        });
+
+        // ===== MODALS =====
+        function openActivateKey() {
+            document.getElementById('dropdownMenu').classList.remove('show');
+            document.getElementById('activateModal').style.display = 'flex';
             document.getElementById('keyInput').value = '';
             document.getElementById('modalStatus').textContent = accountType;
         }
 
-        function closeSettings() {
-            document.getElementById('settingsModal').style.display = 'none';
+        function closeActivateModal() {
+            document.getElementById('activateModal').style.display = 'none';
+        }
+
+        function openGetKey() {
+            document.getElementById('dropdownMenu').classList.remove('show');
+            document.getElementById('getKeyModal').style.display = 'flex';
+            document.getElementById('claimedKey').style.display = 'none';
+        }
+
+        function closeGetKeyModal() {
+            document.getElementById('getKeyModal').style.display = 'none';
+        }
+
+        // ===== CLAIM KEY =====
+        function claimKey() {
+            var randomKey = PREMIUM_KEYS[Math.floor(Math.random() * PREMIUM_KEYS.length)];
+            var keyDiv = document.getElementById('claimedKey');
+            keyDiv.textContent = '🔑 Key của bạn: ' + randomKey;
+            keyDiv.style.display = 'block';
         }
 
         // ===== ACTIVATE KEY =====
         function activateKey() {
             var key = document.getElementById('keyInput').value.trim();
-            if (!key) {
-                showToast('Vui lòng nhập key!', 'error');
-                return;
-            }
+            if (!key) { showToast('Vui lòng nhập key!', 'error'); return; }
 
             if (key === OWNER_KEY) {
-                accountType = 'OWNER';
-                premiumExpiry = null;
-                localStorage.setItem('ff_type', 'OWNER');
-                localStorage.removeItem('ff_expiry');
-                updateUI();
-                closeSettings();
-                showToast('OWNER ACTIVATED! Vĩnh viễn!', 'success');
-                return;
+                accountType = 'OWNER'; premiumExpiry = null;
+                localStorage.setItem('ff_type', 'OWNER'); localStorage.removeItem('ff_expiry');
+                updateUI(); closeActivateModal();
+                showToast('👑 OWNER ACTIVATED! Vĩnh viễn!', 'success'); return;
             }
 
             if (PREMIUM_KEYS.indexOf(key) !== -1) {
@@ -766,11 +1026,10 @@
                 premiumExpiry = Date.now() + (2 * 60 * 60 * 1000);
                 localStorage.setItem('ff_type', 'PREMIUM');
                 localStorage.setItem('ff_expiry', premiumExpiry.toString());
-                updateUI();
-                closeSettings();
-                showToast('PREMIUM ACTIVATED! 2 giờ!', 'success');
+                updateUI(); closeActivateModal();
+                showToast('✅ PREMIUM ACTIVATED! 2 giờ!', 'success');
             } else {
-                showToast('Key không hợp lệ!', 'error');
+                showToast('❌ Key không hợp lệ!', 'error');
             }
         }
 
@@ -778,42 +1037,27 @@
         function startCountdown() {
             stopCountdown();
             if (accountType === 'OWNER') return;
-
             countdownInterval = setInterval(function() {
                 if (!premiumExpiry) { stopCountdown(); return; }
-                var r = premiumExpiry - Date.now();
-                if (r <= 0) {
-                    accountType = 'FREE';
-                    premiumExpiry = null;
-                    localStorage.removeItem('ff_type');
-                    localStorage.removeItem('ff_expiry');
-                    updateUI();
-                    stopCountdown();
-                    showToast('Premium đã hết hạn!', 'error');
+                if (Date.now() >= premiumExpiry) {
+                    accountType = 'FREE'; premiumExpiry = null;
+                    localStorage.removeItem('ff_type'); localStorage.removeItem('ff_expiry');
+                    updateUI(); stopCountdown();
+                    showToast('⏰ Premium đã hết hạn!', 'error');
                 }
-            }, 30000); // Check mỗi 30 giây
+            }, 30000);
         }
 
         function stopCountdown() {
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
+            if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
         }
 
         // ===== INJECT =====
         function injectMod() {
             var uid = document.getElementById('uid').value.trim();
-            if (!uid) {
-                showToast('Vui lòng nhập UID!', 'error');
-                return;
-            }
+            if (!uid) { showToast('Vui lòng nhập UID!', 'error'); return; }
 
-            var config = {
-                uid: uid,
-                account_type: accountType,
-                timestamp: Date.now()
-            };
+            var config = { uid: uid, account_type: accountType, timestamp: Date.now() };
 
             if (accountType === 'PREMIUM' || accountType === 'OWNER') {
                 config.diamonds = parseInt(document.getElementById('diamonds').value) || 0;
@@ -824,35 +1068,25 @@
                 config.player_name = document.getElementById('playerName').value || uid;
             }
 
-            // Lưu config
             localStorage.setItem('ff_inject_config', JSON.stringify(config));
-
             console.log('[SHADOW INJECT]', config);
 
-            if (accountType === 'OWNER') {
-                showToast('OWNER INJECTED! Toàn quyền!', 'success');
-            } else if (accountType === 'PREMIUM') {
-                showToast('PREMIUM INJECTED! Thành công!', 'success');
-            } else {
-                showToast('INJECTED! Nâng cấp Premium để mở khóa!', 'success');
-            }
+            if (accountType === 'OWNER') showToast('👑 OWNER INJECTED!', 'success');
+            else if (accountType === 'PREMIUM') showToast('✅ PREMIUM INJECTED!', 'success');
+            else showToast('⚡ INJECTED! Nâng cấp Premium để mở khóa!', 'success');
         }
 
         // ===== TOAST =====
         function showToast(msg, type) {
             var toast = document.getElementById('toast');
-            toast.textContent = msg;
-            toast.className = 'toast ' + type;
-            setTimeout(function() {
-                toast.className = 'toast';
-            }, 4000);
+            toast.textContent = msg; toast.className = 'toast ' + type;
+            setTimeout(function() { toast.className = 'toast'; }, 4000);
         }
 
-        // Close modal on overlay click
+        // Close modals on overlay click
         document.addEventListener('click', function(e) {
-            if (e.target.id === 'settingsModal') {
-                closeSettings();
-            }
+            if (e.target.id === 'activateModal') closeActivateModal();
+            if (e.target.id === 'getKeyModal') closeGetKeyModal();
         });
     </script>
 </body>
